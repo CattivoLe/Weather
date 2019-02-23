@@ -90,6 +90,9 @@
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Refrash"/>
+                                                <connections>
+                                                    <action selector="refreshButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HrH-aV-W24"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -105,6 +108,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="appearentTemperature" destination="5pu-hE-CK5" id="pUK-0n-iw3"/>
+                        <outlet property="humidityLabel" destination="gFd-U0-tk0" id="w8i-WV-3nP"/>
+                        <outlet property="imageView" destination="7sE-lc-mXy" id="Akh-me-1Vj"/>
+                        <outlet property="locationLabel" destination="2xO-bq-pC1" id="uXH-v9-boa"/>
+                        <outlet property="pressureLabel" destination="HJE-cv-Fby" id="oxO-jI-Z0T"/>
+                        <outlet property="refrashButton" destination="n6e-Og-kf7" id="nls-c5-jIH"/>
+                        <outlet property="temperatureLAbel" destination="sVx-NE-vB9" id="RlJ-eW-QD1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
