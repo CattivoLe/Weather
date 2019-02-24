@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11A817062222B8F6003D43CD /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11A817052222B8F6003D43CD /* APIManager.swift */; };
 		11B460242221451900ED883B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B460232221451900ED883B /* AppDelegate.swift */; };
 		11B460262221451900ED883B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B460252221451900ED883B /* ViewController.swift */; };
 		11B460292221451900ED883B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B460272221451900ED883B /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11A817052222B8F6003D43CD /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		11B460202221451900ED883B /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11B460232221451900ED883B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		11B460252221451900ED883B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -39,6 +41,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		11A817042222B8D1003D43CD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				11A817052222B8F6003D43CD /* APIManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		11B460172221451900ED883B = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 				11B460372221456F00ED883B /* Model */,
 				11B460362221456400ED883B /* View */,
 				11B460352221455A00ED883B /* Controller */,
+				11A817042222B8D1003D43CD /* Managers */,
 				11B4602A2221451B00ED883B /* Assets.xcassets */,
 				11B4602F2221451B00ED883B /* Info.plist */,
 			);
@@ -167,6 +178,7 @@
 			files = (
 				11B460262221451900ED883B /* ViewController.swift in Sources */,
 				11B46039222152D100ED883B /* CurrentWeather.swift in Sources */,
+				11A817062222B8F6003D43CD /* APIManager.swift in Sources */,
 				11B460242221451900ED883B /* AppDelegate.swift in Sources */,
 				11B4603B2221541300ED883B /* WeatherIconManager.swift in Sources */,
 			);

@@ -23,9 +23,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let icon = WeatherIconManager.Rain.image
-        let weather = CurrentWeather(temperature: 20.0, appearentTemperature: 17.0, humidity: 45, pressure: 750, image: icon)
+
+        let icon = WeatherIconManager.ClearDay.image
+        let weather = CurrentWeather(temperature: -5.0, appearentTemperature: -10.0, humidity: 45, pressure: 750, image: icon)
         
         updateUIWith(currentWeather: weather)
     }
