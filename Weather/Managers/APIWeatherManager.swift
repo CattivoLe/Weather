@@ -46,6 +46,7 @@ final class APIWeatherManager: APIManager {
         let request = ForecastType.Current(apiKey: self.apiKey, coordinates: coordinates).request
         
         fetch(request: request, parse: { (json) -> CurrentWeather? in
+            currentLocationName = json["timezone"] as? String ?? "Location Name"
             if let dictionary = json["currently"] as? [String: AnyObject] {
                 return CurrentWeather(JSON: dictionary)
             } else {

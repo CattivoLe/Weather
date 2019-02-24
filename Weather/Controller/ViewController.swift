@@ -63,7 +63,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.appearentTemperature.text = currentWeather.appirentString
         self.pressureLabel.text = currentWeather.pressureString
         self.humidityLabel.text = currentWeather.humidityString
-        self.locationLabel.text = "Moscow, Butovo"
+        self.locationLabel.text = currentLocationName
         
     }
     

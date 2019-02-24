@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+var currentLocationName = "Location Name"
+
 struct CurrentWeather {
     let temperature: Double
     let appearentTemperature: Double
