@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -24,12 +25,24 @@ class ViewController: UIViewController {
         getCurrentWeatherData()
     }
     
+    let locationManager = CLLocationManager()
+    
     lazy var weatherManager = APIWeatherManager(apiKey: "ea099f6f7a72186c1bea538c8e1ee5de")
-    let coordinate = Coordinates(latitude: 55.539667, longitude: 37.520977)
+    var coordinate = Coordinates(latitude: 55.539667, longitude: 37.520977) // Butovo coordinate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest // Желаемая точность
+        locationManager.requestAlwaysAuthorization()
+        locationManager.startUpdatingLocation()
+        
         getCurrentWeatherData()
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let uselLocation = locations.last! as CLLocation
+        coordinate = Coordinates(latitude: uselLocation.coordinate.latitude, longitude: uselLocation.coordinate.longitude)
     }
     
     func getCurrentWeatherData () {
