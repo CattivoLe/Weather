@@ -21,7 +21,7 @@ protocol APIManager {
     var sessionConfiguration: URLSessionConfiguration { get }
     var session: URLSession { get }
     
-    func JSONTaskWith (request: URLRequest, completionHandler: JSONCompletionHandler) -> JSONTask
+    func JSONTaskWith (request: URLRequest, completionHandler: @escaping JSONCompletionHandler) -> JSONTask
     func fetch<Type> (request: URLRequest, parse: ([String:AnyObject]) -> Type?, completionHandler: (APIResult<Type>) -> Void )
     
     init (sessionConfiguration: URLSessionConfiguration)
@@ -62,8 +62,25 @@ extension APIManager {
         return dataTask
     }
     
-    func fetch<Type> (request: URLRequest, parse: ([String:AnyObject]) -> Type?, completionHandler: (APIResult<Type>) -> Void ) {
+    func fetch<Type> (request: URLRequest, parse: @escaping ([String:AnyObject]) -> Type?, completionHandler: @escaping (APIResult<Type>) -> Void ) {
         
+        let dataTask = JSONTaskWith(request: request) { (json, response, error) in
+            
+            guard let json = json else {
+                if let error = error {
+                    completionHandler(.Failure(error))
+                }
+                return
+            }
+            
+            if let value = parse(json) {
+                completionHandler(.Success(value))
+            } else {
+                let error = NSError(domain: WETNetworkingErrorDomain, code: 200, userInfo: nil)
+                completionHandler(.Failure(error))
+            }
+        }
+        dataTask.resume()
     }
     
     
