@@ -50,6 +50,7 @@ class ViewController: UIViewController {
         self.appearentTemperature.text = currentWeather.appirentString
         self.pressureLabel.text = currentWeather.pressureString
         self.humidityLabel.text = currentWeather.humidityString
+        self.locationLabel.text = "Moscow, Butovo"
         
     }
     
