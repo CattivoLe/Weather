@@ -42,3 +42,18 @@ class ViewController: UIViewController {
 
     
 }
+
+
+//
+//        let baseURL = URL(string: "https://api.darksky.net/forecast/ea099f6f7a72186c1bea538c8e1ee5de/")
+//        let fullURL = URL(string: "37.8267,-122.4233", relativeTo: baseURL)
+//
+//        let sessionConfiguration = URLSessionConfiguration.default
+//        let session = URLSession(configuration: sessionConfiguration)
+//
+//        let request = URLRequest(url: fullURL!)
+//        let dataTask = session.dataTask(with: fullURL!) { (data, response, error) in
+//            print(data)
+//        }
+//        dataTask.resume()
+//

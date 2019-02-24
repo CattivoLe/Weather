@@ -11,8 +11,18 @@ import Foundation
 typealias JSONTask = URLSessionDataTask
 typealias JSONCompletionHandler = ([String:AnyObject]?, HTTPURLResponse?, Error?) -> Void
 
-enum APIResult<Type> {
-    case Success(Type)
+protocol JSONDecodable {
+    init?(JSON: [String:AnyObject])
+}
+
+protocol FinalURLPoint {
+    var baseURL: URL { get }
+    var path: String { get }
+    var request: URLRequest { get }
+}
+
+enum APIResult<T> {
+    case Success(T)
     case Failure(Error)
 }
 
@@ -22,9 +32,8 @@ protocol APIManager {
     var session: URLSession { get }
     
     func JSONTaskWith (request: URLRequest, completionHandler: @escaping JSONCompletionHandler) -> JSONTask
-    func fetch<Type> (request: URLRequest, parse: ([String:AnyObject]) -> Type?, completionHandler: (APIResult<Type>) -> Void )
+    func fetch<T: JSONDecodable> (request: URLRequest, parse: @escaping ([String:AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void )
     
-    init (sessionConfiguration: URLSessionConfiguration)
 }
 
 extension APIManager {
@@ -62,7 +71,7 @@ extension APIManager {
         return dataTask
     }
     
-    func fetch<Type> (request: URLRequest, parse: @escaping ([String:AnyObject]) -> Type?, completionHandler: @escaping (APIResult<Type>) -> Void ) {
+    func fetch<T> (request: URLRequest, parse: @escaping ([String:AnyObject]) -> T?, completionHandler: @escaping (APIResult<T>) -> Void ) {
         
         let dataTask = JSONTaskWith(request: request) { (json, response, error) in
             
@@ -85,17 +94,3 @@ extension APIManager {
     
     
 }
-
-//
-//        let baseURL = URL(string: "https://api.darksky.net/forecast/ea099f6f7a72186c1bea538c8e1ee5de/")
-//        let fullURL = URL(string: "37.8267,-122.4233", relativeTo: baseURL)
-//
-//        let sessionConfiguration = URLSessionConfiguration.default
-//        let session = URLSession(configuration: sessionConfiguration)
-//
-//        let request = URLRequest(url: fullURL!)
-//        let dataTask = session.dataTask(with: fullURL!) { (data, response, error) in
-//            print(data)
-//        }
-//        dataTask.resume()
-//
