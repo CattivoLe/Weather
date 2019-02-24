@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8e-sP-6no" userLabel="City">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="31.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow, Russia" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xO-bq-pC1">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="31.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -33,10 +33,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyK-hk-v79" userLabel="Image">
-                                        <rect key="frame" x="0.0" y="41.5" width="320" height="108"/>
+                                        <rect key="frame" x="0.0" y="40" width="320" height="104.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clear-day" translatesAutoresizingMaskIntoConstraints="NO" id="7sE-lc-mXy">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="108"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="104.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="bqS-tp-qI0"/>
                                                 </constraints>
@@ -44,16 +44,19 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sha-ZM-a03">
-                                        <rect key="frame" x="0.0" y="159.5" width="320" height="31"/>
+                                        <rect key="frame" x="0.0" y="154.5" width="320" height="46.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="750 mm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFd-U0-tk0">
-                                                <rect key="frame" x="0.0" y="0.0" width="160" height="31"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="106.5" height="46.5"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MiA-JM-VaQ">
+                                                <rect key="frame" x="106.5" y="0.0" width="107" height="46.5"/>
+                                            </activityIndicatorView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HJE-cv-Fby">
-                                                <rect key="frame" x="160" y="0.0" width="160" height="31"/>
+                                                <rect key="frame" x="213.5" y="0.0" width="106.5" height="46.5"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -61,10 +64,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6PO-D9-UNe" userLabel="Temp">
-                                        <rect key="frame" x="0.0" y="200.5" width="320" height="156.5"/>
+                                        <rect key="frame" x="0.0" y="211" width="320" height="151"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="25˚C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-NE-vB9">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="156.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="100"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -72,10 +75,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiF-Fo-ZLT" userLabel="Feals like">
-                                        <rect key="frame" x="0.0" y="367" width="320" height="29"/>
+                                        <rect key="frame" x="0.0" y="372" width="320" height="27.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feals like: 27˚C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5pu-hE-CK5">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="27.5"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -83,10 +86,10 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CUI-QS-RIX" userLabel="Button">
-                                        <rect key="frame" x="0.0" y="406" width="320" height="54"/>
+                                        <rect key="frame" x="0.0" y="409.5" width="320" height="50.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n6e-Og-kf7">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="54"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="50.5"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Refresh"/>
@@ -109,6 +112,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="MiA-JM-VaQ" id="2tb-tt-u1t"/>
                         <outlet property="appearentTemperature" destination="5pu-hE-CK5" id="GRo-bv-fm4"/>
                         <outlet property="humidityLabel" destination="HJE-cv-Fby" id="W5w-hq-KzF"/>
                         <outlet property="imageView" destination="7sE-lc-mXy" id="NcF-jg-EcW"/>

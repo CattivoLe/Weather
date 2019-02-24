@@ -14,11 +14,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var appearentTemperature: UILabel!
-    @IBOutlet weak var  pressureLabel: UILabel!
-    @IBOutlet weak var  humidityLabel: UILabel!
+    @IBOutlet weak var pressureLabel: UILabel!
+    @IBOutlet weak var humidityLabel: UILabel!
     @IBOutlet weak var refrashButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBAction func refreshButtonTapped(_ sender: UIButton) {
+        toggleActivityIndicator(on: true)
+        getCurrentWeatherData()
     }
     
     lazy var weatherManager = APIWeatherManager(apiKey: "ea099f6f7a72186c1bea538c8e1ee5de")
@@ -26,7 +29,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getCurrentWeatherData()
+    }
+    
+    func getCurrentWeatherData () {
         weatherManager.fetchCurrentWeatherWith(coordinates: coordinate) { (result) in
+            self.toggleActivityIndicator(on: false)
             switch result {
             case .Success(let currentWeather):
                 self.updateUIWith(currentWeather: currentWeather)
@@ -50,5 +58,14 @@ class ViewController: UIViewController {
         let okButton = UIAlertAction(title: "Ok", style: .default)
         allertController.addAction(okButton)
         self.present(allertController, animated: true, completion: nil)
+    }
+    
+    func toggleActivityIndicator (on: Bool) {
+        refrashButton.isHidden = on
+        if on {
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.stopAnimating()
+        }
     }
 }
