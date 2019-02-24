@@ -21,17 +21,22 @@ class ViewController: UIViewController {
     @IBAction func refreshButtonTapped(_ sender: UIButton) {
     }
     
+    lazy var weatherManager = APIWeatherManager(apiKey: "ea099f6f7a72186c1bea538c8e1ee5de")
+    let coordinate = Coordinates(latitude: 55.539667, longitude: 37.520977)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let icon = WeatherIconManager.ClearDay.image
-        let weather = CurrentWeather(temperature: -5.0, appearentTemperature: -10.0, humidity: 45, pressure: 750, image: icon)
-        
-        updateUIWith(currentWeather: weather)
+        weatherManager.fetchCurrentWeatherWith(coordinates: coordinate) { (result) in
+            switch result {
+            case .Success(let currentWeather):
+                self.updateUIWith(currentWeather: currentWeather)
+            case .Failure(let error as NSError):
+                self.presentError(title: "Oops", error: error)
+            }
+        }
     }
     
     func updateUIWith(currentWeather: CurrentWeather) {
-        
         self.imageView.image = currentWeather.image
         self.temperatureLabel.text = currentWeather.temperatureString
         self.appearentTemperature.text = currentWeather.appirentString
@@ -39,21 +44,11 @@ class ViewController: UIViewController {
         self.humidityLabel.text = currentWeather.humidityString
         
     }
-
     
+    func presentError (title: String, error: NSError) {
+        let allertController = UIAlertController(title: title, message: "\(error.localizedDescription)", preferredStyle: .alert)
+        let okButton = UIAlertAction(title: "Ok", style: .default)
+        allertController.addAction(okButton)
+        self.present(allertController, animated: true, completion: nil)
+    }
 }
-
-
-//
-//        let baseURL = URL(string: "https://api.darksky.net/forecast/ea099f6f7a72186c1bea538c8e1ee5de/")
-//        let fullURL = URL(string: "37.8267,-122.4233", relativeTo: baseURL)
-//
-//        let sessionConfiguration = URLSessionConfiguration.default
-//        let session = URLSession(configuration: sessionConfiguration)
-//
-//        let request = URLRequest(url: fullURL!)
-//        let dataTask = session.dataTask(with: fullURL!) { (data, response, error) in
-//            print(data)
-//        }
-//        dataTask.resume()
-//
